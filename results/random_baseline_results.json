@@ -1,0 +1,30 @@
+{
+  "agent": "random_baseline",
+  "env": "ALE/Boxing-v5",
+  "episodes": 3,
+  "mean_reward": -11.67,
+  "std_reward": 5.73,
+  "min_reward": -19.0,
+  "max_reward": -5.0,
+  "mean_ep_length": 442.3,
+  "wins": 0,
+  "draws": 0,
+  "losses": 3,
+  "per_episode": [
+    {
+      "episode": 1,
+      "reward": -11.0,
+      "length": 442
+    },
+    {
+      "episode": 2,
+      "reward": -5.0,
+      "length": 440
+    },
+    {
+      "episode": 3,
+      "reward": -19.0,
+      "length": 445
+    }
+  ]
+}
