@@ -1,0 +1,26 @@
+# Reinforcement Learning
+stable-baselines3>=2.0.0
+
+# Atari environments
+gymnasium[atari]>=1.0.0
+ale-py>=0.9.0
+autorom>=0.4.2
+
+# Deep learning
+torch>=2.0.0
+
+# Data / math
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Logging
+tensorboard>=2.13.0
+
+# Video recording
+imageio[ffmpeg]>=2.31.0
+
+# Utilities
+tqdm>=4.65.0

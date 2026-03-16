@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+rl_env/
+venv/
+.env/
+
+# Training artifacts
+logs/
+results/
+videos/
+
+# Ignore saved experiment folders but keep final exported model
+models/
+
+# TensorBoard
+events.out.tfevents.*
+
+# OS / editor
+.vscode/
+.DS_Store
+Thumbs.db
