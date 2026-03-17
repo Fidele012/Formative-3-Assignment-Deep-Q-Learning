@@ -81,6 +81,7 @@ ENV_ID = "ALE/Boxing-v5"
 N_STACK = 4
 DEFAULT_SEED = 42
 MEMBER_NAME = "Fidele Ndihokubwayo"
+MEMBER_NAME_2 = "Reine Mizero"
 
 # Two-stage training:
 #   screening → all experiments at 100k–200k steps
@@ -342,6 +343,210 @@ ALL_EXPERIMENTS = [
         "hypothesis": "Main high-performance candidate aimed at stronger positioning, cleaner attacks, and better score margins.",
         "observed": "",
     },
+
+    # =========================================================================
+    # REINE MIZERO — Experiments 11–20
+    # =========================================================================
+
+    # 11) Very low learning rate — slow but stable convergence
+    {
+        "name": "Exp11_VeryLowLR_Stable_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 5e-5,
+        "gamma": 0.99,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Very low LR should produce more stable but slower convergence; avoids overshooting the optimal policy.",
+        "observed": "",
+    },
+
+    # 12) High learning rate — fast learning, risk of instability
+    {
+        "name": "Exp12_HighLR_FastLearn_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 5e-4,
+        "gamma": 0.99,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.10,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Higher LR allows faster adaptation but risks oscillation and Q-value divergence on Boxing's sparse rewards.",
+        "observed": "",
+    },
+
+    # 13) Lower gamma — discounts future rewards more, focus on immediate punches
+    {
+        "name": "Exp13_LowGamma_ShortHorizon_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2.5e-4,
+        "gamma": 0.95,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Lower gamma (0.95) makes the agent prioritize immediate punching rewards over long-term positioning strategy.",
+        "observed": "",
+    },
+
+    # 14) Very low gamma — strong short-term focus
+    {
+        "name": "Exp14_VeryLowGamma_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2e-4,
+        "gamma": 0.90,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Very low gamma (0.90) strongly discounts future rewards; expected to hurt long-term strategy but may improve reactive punching.",
+        "observed": "",
+    },
+
+    # 15) Small batch — noisier but more frequent gradient updates
+    {
+        "name": "Exp15_SmallBatch_FreqUpdate_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2e-4,
+        "gamma": 0.99,
+        "batch_size": 32,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Small batch size (32) increases update frequency and noise; may help escape local optima but risks instability.",
+        "observed": "",
+    },
+
+    # 16) Very large batch — smoother gradients, slower adaptation
+    {
+        "name": "Exp16_VeryLargeBatch_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 1.5e-4,
+        "gamma": 0.99,
+        "batch_size": 256,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.20,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Very large batch (256) produces the smoothest gradient estimates; expected to be stable but slow to adapt to new tactics.",
+        "observed": "",
+    },
+
+    # 17) High epsilon end — agent retains significant exploration throughout
+    {
+        "name": "Exp17_HighEpsEnd_KeepExploring_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2.5e-4,
+        "gamma": 0.99,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.10,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Keeping epsilon_end at 0.10 prevents full exploitation; expected to maintain diverse movement but reduce peak performance.",
+        "observed": "",
+    },
+
+    # 18) Very slow exploration decay — agent explores for much longer
+    {
+        "name": "Exp18_SlowEpsDecay_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2e-4,
+        "gamma": 0.99,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.35,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Very slow epsilon decay (35% of training) gives the agent a long exploration window to discover diverse fighting strategies.",
+        "observed": "",
+    },
+
+    # 19) Mid gamma + slightly higher LR — balanced middle-ground config
+    {
+        "name": "Exp19_MidGamma_MidLR_Balanced_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 3e-4,
+        "gamma": 0.97,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 1000,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Middle-ground config: moderate gamma (0.97) balances short- and long-term rewards; slightly elevated LR for faster learning.",
+        "observed": "",
+    },
+
+    # 20) Frequent target network updates — unexplored dimension
+    {
+        "name": "Exp20_FreqTargetUpdate_CNN",
+        "member": MEMBER_NAME_2,
+        "policy": "CnnPolicy",
+        "learning_rate": 2.5e-4,
+        "gamma": 0.99,
+        "batch_size": 64,
+        "exploration_initial_eps": 1.0,
+        "exploration_final_eps": 0.01,
+        "exploration_fraction": 0.15,
+        "buffer_size": 100_000,
+        "learning_starts": 10_000,
+        "target_update_interval": 500,
+        "train_freq": 4,
+        "n_envs": N_ENVS_CNN,
+        "hypothesis": "Halving target_update_interval (500 vs standard 1000) syncs the target network more frequently; expected to reduce overestimation bias but may increase instability.",
+        "observed": "",
+    },
 ]
 
 
@@ -526,6 +731,26 @@ def infer_observed_behavior(result: dict, baseline_eval: Optional[float]) -> str
         return f"Champion candidate {relative} It targets stronger movement, cleaner attacks, and higher winning margins."
     if "BestTuned" in name:
         return f"Top tuned CNN {relative} It balanced learning speed and stability well."
+    if "VeryLowLR" in name:
+        return f"Very low learning rate (5e-5) {relative} It converged slowly but produced stable Q-value estimates with minimal oscillation."
+    if "HighLR" in name:
+        return f"High learning rate (5e-4) {relative} It learned quickly but risked Q-value divergence on Boxing's sparse reward signal."
+    if "VeryLowGamma" in name:
+        return f"Very low gamma (0.90) {relative} Strong short-term discounting likely harmed long-term positioning and pressure strategy."
+    if "LowGamma" in name:
+        return f"Low gamma (0.95) {relative} Short-horizon focus prioritised immediate punches over sustained positioning."
+    if "SmallBatch" in name:
+        return f"Small batch (32) {relative} Frequent noisy updates increased variance but may have helped escape local optima."
+    if "VeryLargeBatch" in name:
+        return f"Very large batch (256) {relative} Smoothest gradient estimates but slowest adaptation to new fighting patterns."
+    if "HighEpsEnd" in name:
+        return f"High epsilon end (0.10) {relative} Retained significant exploration throughout; likely limited peak exploitation performance."
+    if "SlowEpsDecay" in name:
+        return f"Very slow epsilon decay (35% of training) {relative} Extended exploration window; gave more time to discover diverse tactics before committing."
+    if "MidGamma" in name:
+        return f"Mid gamma (0.97) with elevated LR {relative} Balanced short- and long-term credit assignment with faster weight updates."
+    if "FreqTargetUpdate" in name:
+        return f"Frequent target network updates (interval=500) {relative} More frequent syncing reduced the gap between online and target Q-values, affecting training stability and convergence speed."
     return (
         f"Observed best eval reward = {eval_reward:.2f}, "
         f"training mean last 20 = {train_aux:.2f}; {relative}"
