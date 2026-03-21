@@ -1,5 +1,0 @@
-name,policy,env_id,learning_rate,gamma,batch_size,ep_rew_mean,notes
-exp1,CnnPolicy,ALE/Boxing-v5,0.0005,0.95,64,-11,initial run random movement
-exp2,CnnPolicy,ALE/Boxing-v5,0.0005,0.95,64,-5.25,better attacking and movement
-exp3,CnnPolicy,ALE/Boxing-v5,0.0005,0.95,64,0,good balance performance
-exp4,CnnPolicy,ALE/Boxing-v5,0.0001,0.95,64,-6,more controlled but missing punches
