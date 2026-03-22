@@ -11,12 +11,8 @@ venv/
 .venv/
 
 # Training artifacts
-logs/
-results/
-videos/
 
 # Ignore saved experiment folders but keep final exported model
-models/
 
 # TensorBoard
 events.out.tfevents.*

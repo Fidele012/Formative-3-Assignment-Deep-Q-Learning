@@ -36,3 +36,4 @@ Using Stable Baselines 3 and Gymnasium to train and evaluate a Deep Q-network (D
 | Losses | 0 |
 
 The trained agent won all 3 evaluation episodes against the Atari CPU opponent, scoring between 16 and 31 points per episode.
+Gameplay_video: <video controls src="results/gameplay_video/boxing_dqn-step-0-to-step-20000.mp4" title="Title"></video>

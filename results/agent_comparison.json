@@ -1,0 +1,22 @@
+{
+  "environment": "ALE/Boxing-v5",
+  "same_conditions": true,
+  "trained_agent": {
+    "mean_reward": 20.0,
+    "std_reward": 7.79,
+    "wins": 3,
+    "draws": 0,
+    "losses": 0,
+    "mean_ep_length": 442.3
+  },
+  "random_baseline": {
+    "mean_reward": -11.67,
+    "std_reward": 5.73,
+    "wins": 0,
+    "draws": 0,
+    "losses": 3,
+    "mean_ep_length": 442.3
+  },
+  "difference_mean_reward": 31.67,
+  "difference_wins": 3
+}
