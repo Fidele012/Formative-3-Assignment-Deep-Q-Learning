@@ -8,6 +8,7 @@ __pycache__/
 rl_env/
 venv/
 .env/
+.venv/
 
 # Training artifacts
 logs/
