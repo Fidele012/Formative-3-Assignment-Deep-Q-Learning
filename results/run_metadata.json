@@ -1,0 +1,20 @@
+{
+  "env_id": "ALE/Boxing-v5",
+  "stage": "screening",
+  "timesteps_per_experiment": 100000,
+  "seed": 42,
+  "reward_clipping": false,
+  "terminal_on_life_loss": false,
+  "frame_stack": 4,
+  "member_name": "Fidele Ndihokubwayo",
+  "experiments": [
+    "Exp10_ChampionCandidate_CNN"
+  ],
+  "full_stage_experiments_default": [
+    "Exp01_BestTuned_TopCNN",
+    "Exp02_LargeBatch_TopCNN",
+    "Exp05_HighGamma_Balanced"
+  ],
+  "before_training_demo": "Use play.py --random-baseline with the same episode count/time as after-training demo.",
+  "after_training_demo": "Use play.py with dqn_model.zip."
+}

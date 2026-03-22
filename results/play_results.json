@@ -1,0 +1,23 @@
+{
+  "agent": "trained_dqn",
+  "env": "ALE/Boxing-v5",
+  "episodes": 1,
+  "mean_reward": 21.0,
+  "std_reward": 0.0,
+  "min_reward": 21.0,
+  "max_reward": 21.0,
+  "mean_ep_length": 442.0,
+  "wins": 1,
+  "draws": 0,
+  "losses": 0,
+  "per_episode": [
+    {
+      "episode": 1,
+      "reward": 21.0,
+      "length": 442
+    }
+  ],
+  "model": "dqn_model.zip",
+  "reward_clipping": false,
+  "greedy_policy": "deterministic=True"
+}
